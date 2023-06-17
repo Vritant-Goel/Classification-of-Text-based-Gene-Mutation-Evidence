@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-df = pd.read_csv('training_variants.csv')
+df = pd.read_csv('training_variants', sep = ',')
 
 class_counts = df['Class'].value_counts().sort_index()
 
