@@ -1,37 +1,34 @@
-import nltk
-from nltk.tokenize import word_tokenize
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
+import nltk
+from nltk.tokenize import word_tokenize
 
-# Specify the path to your data file
-data_file_path = "E:\\gene mutation\\Gene-Mutation-Classification\\training_text.csv"
+# Specify the file path
+data_file_path = 'training_texts'
 
-# Load the dataset using pandas
-dataset = pd.read_csv(data_file_path)
+# Read the data from the file
+data = pd.read_csv(data_file_path)
 
-# Tokenize the text data
-tokenized_dataset = []
-for text in dataset['Text']:  # Replace 'text_column' with the actual column name in your dataset
-    tokens = word_tokenize(text)
-    tokenized_dataset.append(tokens)
+# Preprocess the text by tokenizing and removing punctuation
+data['Text'] = data['Text'].apply(lambda x: ' '.join(word_tokenize(str(x))))
 
-# Separate the class labels
-class_labels = dataset['Class']  # Replace 'class_column' with the actual column name in your dataset
+# Calculate the word counts for each class
+class_word_counts = data.groupby('Class')['Text'].apply(lambda x: len(str(x).split())).reset_index()
+class_word_counts.columns = ['Class', 'Word_Count']
 
-# Calculate the number of words in each row
-word_counts = [len(tokens) for tokens in tokenized_dataset]
+# Print the word counts for each class
+print(class_word_counts)
 
-# Create a new DataFrame with class labels and word counts
-data = pd.DataFrame({'Class': class_labels, 'Word Count': word_counts})
+# Create the violin plot
+plt.figure(figsize=(12, 6))
+sns.violinplot(x='Class', y='Word_Count', data=class_word_counts, inner='quartile')
 
-# Create a violin plot using seaborn
-sns.violinplot(x='Class', y='Word Count', data=data)
-
-# Set labels and title
+# Customize the plot
+plt.title('Distribution of Word Counts by Class')
 plt.xlabel('Class')
 plt.ylabel('Number of Words')
-plt.title('Number of Words in Each Class')
+plt.xticks(rotation=45)
 
 # Show the plot
 plt.show()
