@@ -50,11 +50,13 @@ for i in range(1, 10):
 # Manipulate the accuracy for Class 8
 classwise_accuracy[7] = 0.05
 
+average_accuracy = sum(classwise_accuracy) / len(classwise_accuracy)
+
 # Plot the accuracy percentage bar graph
 plt.figure(figsize=(10, 6))
-colors = ['red', 'blue', 'green', 'orange', 'purple', 'brown', 'pink', 'gray', 'cyan']
+colors = ['#990b0b', '#c47e0e', '#658c0a', '#0e0bba', '#e014da', '#144d02', '#0c8ff2', '#ba02b4', '#02373b']
 plt.bar(range(1, 10), classwise_accuracy, color=colors)
-plt.axhline(y=sum(classwise_accuracy)/len(classwise_accuracy), color='black', linestyle='--', label='Average Accuracy')
+plt.axhline(average_accuracy, color='black', linestyle='--', label=f"Average Accuracy: {average_accuracy:.2f}%")
 plt.title("Accuracy Percentage - Logistic Regression")
 plt.xlabel("Class")
 plt.ylabel("Accuracy Percentage")
@@ -65,5 +67,5 @@ plt.legend()
 plt.show()
 
 # Print the average accuracy
-average_accuracy = sum(classwise_accuracy) / len(classwise_accuracy)
-print("Average Accuracy:", round(average_accuracy*100, 2), "%")
+print("Average Accuracy: ", round(average_accuracy*100, 2), "%")
+# accuracy is 48.68%
