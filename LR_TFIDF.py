@@ -68,4 +68,3 @@ plt.show()
 
 # Print the average accuracy
 print("Average Accuracy: ", round(average_accuracy*100, 2), "%")
-# accuracy is 48.68%
