@@ -1,10 +1,10 @@
 # Gene-Mutation-Classification
 
-Gene mutation classification is an important aspect of cancer tumor detection, as it helps identify specific genetic mutations that contribute to the development and progression of cancer.
+Gene mutation classification is an important aspect of cancer tumour detection, as it helps identify specific genetic mutations that contribute to the development and progression of cancer.
 
-Text evidence plays a crucial role in this process, as it provides valuable information on the molecular and cellular mechanisms underlying cancer.
+Text evidence plays a crucial role in this process, providing valuable information on the molecular and cellular mechanisms underlying cancer.
 
-Machine learning algorithms can be trained on such text evidence to identify patterns and associations between specific gene mutations and cancer types, as well as to predict the functional effects of these mutations on gene expression and cellular pathways.
+Machine learning algorithms can be trained on such text evidence to identify patterns and associations between specific gene mutations and cancer types and predict the functional effects of these mutations on gene expression and cellular pathways.
 
 Manual gene classification is a time-consuming process where pathologists interpret every genetic mutation from the clinical evidence manually. 
 
@@ -13,15 +13,22 @@ The criterion of manual classification is still unknown.
 The main aim of this project is to propose a multiclass classifier to classify the genetic mutations based on clinical evidence (i.e., the text description of these genetic mutations) using Natural Language Processing (NLP) techniques.
 
 Three different text vectorizers were used in this project namely - 
-  1. CountVectorizer
-  2. TF IDF Vectorizer
-  3. Word2Vec
+  1. CountVectorizer (CV)
+  2. TF IDF Vectorizer (TFIDF)
+  3. Word2Vec (WC)
 
 Various classifiers used are - 
-  1. Linear Regression
-  2. Random Forest
-  3. XGBoost
-  4. K Nearest Neighbor
-  5. Naive Bayes
+  1. Logistic Regression (LR)
+  2. Random Forest (RF)
+  3. XGBoost (XGB)
+  4. K Nearest Neighbor (KNN)
+  5. Naive Bayes (NB)
+
+Various results were compared in order to find the best-performing classifier only to conclude that a Recurrent Neural Network would work better than all the above-mentioned classifiers.
+
+The dataset used can be downloaded from Kaggle using the following link - 
+  https://www.kaggle.com/c/msk-redefining-cancer-treatment/data?select=training_text.zip
+  https://www.kaggle.com/c/msk-redefining-cancer-treatment/data?select=training_variants.zip
+
 
 
