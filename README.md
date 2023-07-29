@@ -1,4 +1,4 @@
-# Gene-Mutation-Classification
+# Classification of Text-based Gene Mutation Evidence
 
 Gene mutation classification is an important aspect of cancer tumour detection, as it helps identify specific genetic mutations that contribute to the development and progression of cancer.
 
@@ -28,7 +28,10 @@ Various results were compared in order to find the best-performing classifier on
 
 The dataset used can be downloaded from Kaggle using the following link - 
   https://www.kaggle.com/c/msk-redefining-cancer-treatment/data?select=training_text.zip
+  
   https://www.kaggle.com/c/msk-redefining-cancer-treatment/data?select=training_variants.zip
+
+In 'data_changes.py' code file, a third dataset is created. It comprises both of the datasets linked above after preprocessing. Most of the classifiers work on this dataset.
 
 
 
